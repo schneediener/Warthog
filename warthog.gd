@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 var wheel_base = 70
 var steering_angle = 17
-var engine_power = 1360
-var friction = -0.9
+var engine_power = 1250
+var friction = -0.7
 var drag = -0.001
-var braking = -450
-var max_speed_reverse = 250
-var slip_speed = 380
+var braking = -900
+var max_speed_reverse = 750
+var slip_speed = 500
 var traction_fast = 0.01
-var traction_slow = 0.15
+var traction_slow = 0.20
 var current_health = 100
 var slow_count = 0
 var speed = 0
