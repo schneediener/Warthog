@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	
 	#new code below
 	refresh_target_array()
-	if current_target:
+	if is_instance_valid(current_target):
 		track_target()
 
 #func _unhandled_input(event):

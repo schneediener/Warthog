@@ -1,15 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://enemy.gd" type="Script" id=1]
-[ext_resource path="res://bulletSand3_outline.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 29, 29 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34, 34 )
 
 [node name="KinematicBody2D2" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="HitDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="HitDetection" to="." method="_on_HitDetection_body_entered"]
