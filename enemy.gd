@@ -4,7 +4,7 @@ var type = "enemy"
 var subtype = "creep"
 var velocity
 var speed = 100
-var current_health = 50
+var current_health = 40
 onready var player = get_node("/root/Node2D/KinematicBody2D")
 onready var remaining_dist = global_position.distance_to(player.global_position)
 # Declare member variables here. Examples:

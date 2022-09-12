@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var type = "bullet"
-var speed = 1750
+var speed = 4000
 var velocity = Vector2()
 var target_velocity = Vector2()
 var target
