@@ -3,7 +3,7 @@ extends KinematicBody2D
 var type = "enemy"
 var subtype = "creep"
 var velocity
-var speed = 100
+var speed = 200
 var current_health = 40
 onready var player = get_node("/root/Node2D/KinematicBody2D")
 onready var remaining_dist = global_position.distance_to(player.global_position)
@@ -17,6 +17,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	if $TextureProgress.value!=current_health:
+		$TextureProgress.value=current_health
 	remaining_dist = global_position.distance_to(player.global_position)
 	if current_health <= 0:
 		self.queue_free()
@@ -36,4 +38,8 @@ func get_distance():
 func _on_HitDetection_body_entered(body):
 	if body.type=="bullet":
 		body.queue_free()
-		current_health=current_health-body.damage
+		take_damage(body.damage)
+
+func take_damage(inc_damage):
+	current_health = current_health - inc_damage
+

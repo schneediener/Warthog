@@ -10,7 +10,9 @@ var max_speed_reverse = 250
 var slip_speed = 400
 var traction_fast = 0.03
 var traction_slow = 0.23
-
+var current_health = 100
+var slow_count = 0
+var speed = 0
 var type = "warthog"
 
 var acceleration = Vector2.ZERO
@@ -18,6 +20,7 @@ var velocity = Vector2.ZERO
 var steer_direction
 
 func _physics_process(delta):
+	engine_power = 1210-(50*slow_count)
 	acceleration = Vector2.ZERO
 	get_input()
 	apply_friction()
@@ -25,6 +28,9 @@ func _physics_process(delta):
 	velocity += acceleration * delta
 	velocity = move_and_slide(velocity)
 
+func _process(delta):
+	var temp_speed = "%4.1f" % velocity.length()
+	speed = int(temp_speed)
 func apply_friction():
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
@@ -61,12 +67,24 @@ func calculate_steering(delta):
 		velocity = -new_heading * min(velocity.length(), max_speed_reverse)
 	rotation = new_heading.angle()
 	
-	
-
-
 
 		
+func take_damage(dmg, dmg_type):
+	current_health = current_health-dmg
+	if dmg_type=="slow":
+		slow_count = slow_count+1
+		var timer = Timer.new()
+		timer.connect("timeout",self,"slow_expired")
+		timer.wait_time = 1.5
+		timer.one_shot = true
+		timer.start()
+
+func slow_expired():
+	slow_count = slow_count-1
 		
 	
-		
-	
+
+func _on_bumper_body_entered(body):
+	if body.type=="enemy":
+		if speed >= 250:
+			body.take_damage(speed/10)

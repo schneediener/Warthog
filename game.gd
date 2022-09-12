@@ -12,8 +12,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if $TextureProgress.value != $KinematicBody2D.current_health:
+		$TextureProgress.value=$KinematicBody2D.current_health
 
 
 func _on_spawn_timer_timeout():
