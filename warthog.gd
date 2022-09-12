@@ -86,5 +86,7 @@ func slow_expired():
 
 func _on_bumper_body_entered(body):
 	if body.type=="enemy":
-		if speed >= 250:
-			body.take_damage(speed/10)
+			if speed/10>10:
+				body.take_damage(speed/10)
+			else:
+				body.take_damage(10)
