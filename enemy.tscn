@@ -9,7 +9,7 @@
 radius = 31.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 34, 36 )
+extents = Vector2( 36, 36 )
 
 [node name="KinematicBody2D2" type="KinematicBody2D"]
 collision_mask = 5
@@ -28,6 +28,9 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitDetection"]
 shape = SubResource( 2 )
 
+[node name="Timer" type="Timer" parent="HitDetection"]
+wait_time = 0.8
+
 [node name="TextureProgress" type="TextureProgress" parent="."]
 margin_left = -29.0
 margin_top = 27.0
@@ -43,3 +46,4 @@ __meta__ = {
 }
 
 [connection signal="body_entered" from="HitDetection" to="." method="_on_HitDetection_body_entered"]
+[connection signal="timeout" from="HitDetection/Timer" to="." method="_on_Timer_timeout"]

@@ -7,6 +7,7 @@ var speed = 200
 var current_health = 40
 onready var player = get_node("/root/Node2D/KinematicBody2D")
 onready var remaining_dist = global_position.distance_to(player.global_position)
+var ready = true
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -36,10 +37,20 @@ func get_distance():
 
 
 func _on_HitDetection_body_entered(body):
-	if body.type=="bullet":
-		body.queue_free()
-		take_damage(body.damage)
+	match body.type:
+		"bullet":
+			body.queue_free()
+			take_damage(body.damage)
+		"warthog":
+			if ready:
+				body.take_damage(5, "normal")
+				$HitDetection/Timer.start()
+				ready = false
 
 func take_damage(inc_damage):
 	current_health = current_health - inc_damage
 
+
+
+func _on_Timer_timeout():
+	ready = true

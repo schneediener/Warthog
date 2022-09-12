@@ -47,8 +47,9 @@ margin_left = 14.0
 margin_top = 17.0
 margin_right = 311.0
 margin_bottom = 67.0
-texture_under = ExtResource( 2 )
+value = 100.0
 texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false

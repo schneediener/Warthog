@@ -29,6 +29,8 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func _process(delta):
+	if current_health<=0:
+		get_tree().quit()
 	var temp_speed = "%4.1f" % velocity.length()
 	speed = int(temp_speed)
 func apply_friction():
