@@ -56,7 +56,7 @@ polygon = PoolVector2Array( 23, -25, 41, -23, 48, -11, 53, 0, 48, 10, 41, 22, 23
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="bumper"]
 position = Vector2( -2.58157, -1.04742 )
 scale = Vector2( 1.26285, 1.07198 )
-polygon = PoolVector2Array( 5.21167, -19.5457, 15.5058, 1.90995, 4, 23, -7, 24, -6, 29, 8, 27, 14.714, 17.7685, 19.4651, 8.43994, 19.4651, -5.5529, 14, -18, 7, -25, -7, -27, -8.24993, -21.4115 )
+polygon = PoolVector2Array( 10.7547, -23.2771, 17.0896, -7.41859, 20.257, 1.90994, 9.96284, 28.9627, -13.0011, 30.8284, -35.965, 31.7612, -61.3045, 32.6941, -70.015, 26.1641, -77.1417, 4.7085, -73.1824, -19.5457, -63.6801, -30.7399, -45.4673, -29.8071, -32.0057, -27.0085, -17.7522, -27.9414, -10.6255, -29.8071, 6.7954, -27.0085 )
 
 [connection signal="timeout" from="turret/FiringRate" to="turret" method="_on_FiringRate_timeout"]
 [connection signal="body_entered" from="bumper" to="." method="_on_bumper_body_entered"]
