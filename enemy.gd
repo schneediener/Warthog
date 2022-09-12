@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 var type = "enemy"
+var subtype = "creep"
+onready var player = get_node("/root/Node2D/KinematicBody2D")
+onready var remaining_dist = global_position.distance_to(player.global_position)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,6 +13,11 @@ var type = "enemy"
 func _ready():
 	pass # Replace with function body.
 
+func _physics_process(delta):
+	remaining_dist = global_position.distance_to(player.global_position)
+
+func get_distance():
+	return remaining_dist
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
