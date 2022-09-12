@@ -283,7 +283,7 @@ func fire():
 	var projectile_container = get_node("/root/Node2D/bullet_container")
 	var projectile
 	var muzzle = $muzzle
-	var cooldown = self.get_node("FiringRate")
+	var cooldown = $FiringRate
 	
 	match self.weapon_type:
 		"cannon":
