@@ -5,9 +5,9 @@ var speed = 1750
 var velocity = Vector2()
 var target_velocity = Vector2()
 var target
+var damage = 16
 
 var orig_tower
-var damage
 var slow
 var target_position
 

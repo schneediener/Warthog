@@ -4,6 +4,7 @@ var type = "enemy"
 var subtype = "creep"
 var velocity
 var speed = 100
+var current_health = 50
 onready var player = get_node("/root/Node2D/KinematicBody2D")
 onready var remaining_dist = global_position.distance_to(player.global_position)
 # Declare member variables here. Examples:
@@ -16,6 +17,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	remaining_dist = global_position.distance_to(player.global_position)
+	if current_health <= 0:
+		self.queue_free()
 	velocity = Vector2.ZERO
 	if player:
 		velocity = position.direction_to(player.position) * speed
@@ -32,4 +36,4 @@ func get_distance():
 func _on_HitDetection_body_entered(body):
 	if body.type=="bullet":
 		body.queue_free()
-		self.queue_free()
+		current_health=current_health-body.damage
