@@ -152,30 +152,31 @@ tile_data = PoolIntArray( 131081, 2, 0, 262152, 3, 0, 262153, 3, 0, 393210, 0, 0
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 189, 330 )
 
+[node name="spawn_container" type="Node2D" parent="KinematicBody2D"]
+position = Vector2( -189, -330 )
+
+[node name="Position2D" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( -941, 504 )
+
+[node name="Position2D2" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( 1068, 1011 )
+
+[node name="Position2D3" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( 1236, 309 )
+
+[node name="Position2D4" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( -535, -305 )
+
+[node name="Position2D5" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( -653, 984 )
+
+[node name="Position2D6" type="Position2D" parent="KinematicBody2D/spawn_container"]
+position = Vector2( 662, -323 )
+
 [node name="trash" type="Node2D" parent="."]
 visible = false
 
 [node name="bullet_container" type="Node2D" parent="."]
-
-[node name="spawn_container" type="Node2D" parent="."]
-
-[node name="Position2D" type="Position2D" parent="spawn_container"]
-position = Vector2( -42, 330 )
-
-[node name="Position2D2" type="Position2D" parent="spawn_container"]
-position = Vector2( 500, 640 )
-
-[node name="Position2D3" type="Position2D" parent="spawn_container"]
-position = Vector2( 1089, 307 )
-
-[node name="Position2D4" type="Position2D" parent="spawn_container"]
-position = Vector2( 502, -43 )
-
-[node name="Position2D5" type="Position2D" parent="spawn_container"]
-position = Vector2( -42, 625 )
-
-[node name="Position2D6" type="Position2D" parent="spawn_container"]
-position = Vector2( 1019, -55 )
 
 [node name="enemy_container" type="Node2D" parent="."]
 
