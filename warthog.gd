@@ -30,7 +30,8 @@ func _physics_process(delta):
 
 func _process(delta):
 	if current_health<=0:
-		get_tree().quit()
+		get_parent().get_node("Camera2D/you_lose").visible = true
+		get_tree().paused = true
 	var temp_speed = "%4.1f" % velocity.length()
 	speed = int(temp_speed)
 func apply_friction():

@@ -22,6 +22,7 @@ func _physics_process(delta):
 		$TextureProgress.value=current_health
 	remaining_dist = global_position.distance_to(player.global_position)
 	if current_health <= 0:
+		get_node("/root/Node2D").score += 150 
 		self.queue_free()
 	velocity = Vector2.ZERO
 	if player:

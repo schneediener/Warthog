@@ -10,7 +10,7 @@
 radius = 485.264
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
-position = Vector2( 79, 62 )
+position = Vector2( 1024, 605 )
 collision_mask = 10
 script = ExtResource( 2 )
 
@@ -57,11 +57,6 @@ polygon = PoolVector2Array( 23, -25, 41, -23, 48, -11, 53, 0, 48, 10, 41, 22, 23
 position = Vector2( -2.58157, -1.04742 )
 scale = Vector2( 1.26285, 1.07198 )
 polygon = PoolVector2Array( 10.7547, -23.2771, 17.0896, -7.41859, 20.257, 1.90994, 9.96284, 28.9627, -13.0011, 30.8284, -35.965, 31.7612, -61.3045, 32.6941, -70.015, 26.1641, -77.1417, 4.7085, -73.1824, -19.5457, -63.6801, -30.7399, -45.4673, -29.8071, -32.0057, -27.0085, -17.7522, -27.9414, -10.6255, -29.8071, 6.7954, -27.0085 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2( 0.75, 0.75 )
-current = true
-zoom = Vector2( 2, 2 )
 
 [connection signal="timeout" from="turret/FiringRate" to="turret" method="_on_FiringRate_timeout"]
 [connection signal="body_entered" from="bumper" to="." method="_on_bumper_body_entered"]
